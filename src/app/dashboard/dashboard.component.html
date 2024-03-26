@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Angular-Curd</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+         
+          <li class="nav-item dropdown">
+           
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Empoylee</button>
+          </li>
+         
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+  <table class="table my-3">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">Empolyee Id</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Email Id</th>
+        <th scope="col">Mobile No.</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of EmpolyeeDATA">
+       <td>{{e.id}}</td>
+       <td>{{e.firstname}}</td>
+        <td>{{e.lastname}}</td>
+        <td>{{e.email}}</td>
+        <td>{{e.mobile}}</td>
+        <td>{{e.salary | currency:'INR'}}</td>
+
+        <td>
+            <button class="btn btn-primary mx-3" (click)="update(e)" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+            <button class="btn btn-danger" (click)="deletdata(e)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Empolyee Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+             <div class="modal-body">
+            <form [formGroup]="formvalue" (ngSubmit)="adddata()">
+                <div class="mb-2">
+                  <label for="exampleInputEmail1" class="form-label">First Name</label>
+                  <input type="text" formControlName="firstname" name="first" class="form-control" placeholder="Enter Fname" >
+                </div>
+                <div class="mb-2">
+                  <label for="exampleInputPassword1" class="form-label">Last Name</label>
+                  <input type="text" formControlName="lastname" name="last" class="form-control"  placeholder="Enter Lname">
+                </div>
+                <div class="mb-2">
+                    <label for="exampleInputPassword1" class="form-label">Email Id</label>
+                    <input type="email" formControlName="email" name="email" class="form-control"  placeholder="Enter email">
+                  </div>
+                  <div class="mb-2">
+                    <label for="exampleInputPassword1" class="form-label">Mobile No.</label>
+                    <input type="text" formControlName="mobile" name="mobile" class="form-control"  placeholder="Enter mobile no">
+                  </div>
+                  <div class="mb-2">
+                    <label for="exampleInputPassword1" class="form-label">Salary</label>
+                    <input type="text" formControlName="salary" name="salary" class="form-control"  placeholder="Enter salary" >
+                  </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="adddata()">Add</button>
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="updateEmpoylee()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "firstname": "bharat",
+      "lastname": "kale",
+      "email": "kalebharat330@gmail.com",
+      "mobile": "9421044840",
+      "salary": "35000"
+    },
+    {
+      "id": 2,
+      "firstname": "Dnyneshwar",
+      "lastname": "kale",
+      "email": "Dnyneshwar7262@gmail.com",
+      "mobile": "7262967267",
+      "salary": "40000"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
